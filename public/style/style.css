@@ -1,0 +1,177 @@
+
+* :not(*[class^="amazingcarousel"]){
+    box-sizing: border-box;
+    direction: rtl;
+}
+h1{
+    text-align:center;
+}
+input[type=text],[type=number],[type=date], select{
+    float:right;
+    width:30%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+textarea {
+    width:100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 160px;
+    resize: vertical;
+}
+#sp {
+    width:100%;   
+}  
+#sp  input[type=text],[type=number]{
+    width:100%;
+}
+
+label {
+     float:right;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    min-width: 100px;
+    width: 15%;
+}
+input[type=submit], input[type=text],[type=number],[type=date], select{
+    height:45px;
+}
+
+input[type=submit]:hover {
+     background-color: #45a049;
+}
+
+ #saveD, #prevD{
+    float:right;
+    margin-bottom:15px;
+    background-color:rgb(0,80,80);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#saved, #sent{
+    float: right;
+    visibility: hidden;
+}
+#sent{
+    float: right;
+    visibility: hidden;
+}
+#saveName, #prevSelect{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#afterSubmit{
+    margin-top:15px;
+}
+input[type=submit]:hover {
+    background-color: rgb(180,0,00);
+}
+
+.container1 {
+    margin: 0 16%;;
+    text-align: right;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 2%;
+}
+
+/* Clear floats after the columns */
+.row:after, .sp-r:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.col-100{ 
+    
+    float: right;
+width: 100%;
+margin-top: 0;
+}
+.col-60{ 
+float: right;
+width: 60%;
+margin-top: 0;
+}
+.col-18{ 
+float: right;
+width: 20%;
+margin-top: 0;
+}
+#containerId{
+    min-width:768px;
+    width : 75%;
+    margin:0 auto;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 2%;
+}
+#download{
+     float:left;
+     margin-bottom:15px;;
+     background-color:tomato;
+}
+#nameSave{
+    position: absolute;
+    top:0;
+    width:80px;
+    height:50px;
+    box-shadow:0 0 5px 5px grey;
+}
+#emailSubmit{
+    margin : 10px;
+}
+#emailSubmit:disabled,  #emailSubmit:disabled:hover, #saveD:disabled,  #saveD:disabled:hover, #download:disabled, #download:disabled:hover{
+     background: grey;
+     cursor:not-allowed;
+}
+.chosen{
+    background-color: red;
+}
+
+
+
+@media only screen and (max-width: 1250px) {
+        /* For mobile phones: */
+
+        .container1{
+            margin: 0 0;
+        }
+
+    }
+
+@media only screen and (max-width: 825px) {
+    /* For mobile phones: */
+
+    .container1{
+        margin: 0 0;
+    }
+      #containerId, [class*="col-"],  input[type=text],[type=number],[type=date], select, textarea{
+          min-width:0%;
+          width: 100%
+      }
+      .col-18{
+          width: 50%;
+      }
+         [class*="col-18"]{
+          min-width:0%;
+          width: 50%
+      }
+      .sp-r{
+          margin-bottom: 4px;
+      }
+      
+
+}

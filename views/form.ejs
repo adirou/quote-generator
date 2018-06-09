@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=device-width">  
+        <link type="text/css" rel="stylesheet" href="style/style.css"/>
+        <meta charset = "UTF-8">
+        <title>הצעות מחיר</title>
+        <script src="carouselengine/jquery.js"></script>
+        
+        <!-- Insert to your webpage before the </head> -->
+        <script src="carouselengine/jquery.js"></script>
+        <script src="carouselengine/amazingcarousel.js"></script>
+        <link rel="stylesheet" type="text/css" href="carouselengine/initcarousel-1.css">
+        <script src="carouselengine/initcarousel-1.js"></script>
+    </head>
+    <body>
+        <div style="margin: 0 auto;">
+       
+        <div class="container1">
+            <h1>מייצר הצעות מחיר</h1>
+            <div id="containerId">
+            <form method="post" enctype="multipart/form-data" target="frame" onsubmit="return(submitForm(this))">
+                 <div class="row">
+                    <div class="col-100">
+                        <label for="company">שם חברה</label>
+                    </div>
+                    <div class="col-100">
+                        <input type="text" id="company" name="company" placeholder=" שם חברה ">
+                    </div>
+                <div class="row">
+                    <div class="col-100">
+                        <label for="fname">שם איש קשר</label>
+                    </div>
+                    <div class="col-100">
+                        <input type="text" id="fname" name="name" placeholder="שם איש קשר">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-100">
+                        <label for="fname">תאריך</label>
+                    </div>
+                    <div class="col-100">
+                        <input type="Date" id="date" name="date" placeholder="תאריך">
+                    </div>
+                </div>
+                  <div class="row">
+                    <div class="col-100">
+                        <label for="fname">פריטים מוכנים</label>
+                    </div>
+                    
+                    <div class="col-100">
+                        <Select name="prepared" id="prepared" onchange="update()">
+                             <option value="0" selected>לא נבחר</option>
+                             <% let k=1 ; old.forEach(function(detail) { %>
+                              <option value="<%=k++%>"><%=detail.saveName%></option>
+                              <% }); %>
+                        </select>
+                    </div>
+                </div>
+                   <div class="row">
+                    <div class="col-100">
+                        <label for="fname">:פריטים</label>
+                    </div>
+                    <div id="sp">
+                        <div class="sp-r" id="sp-r-0">
+                            <div class="col-60">
+                                <input type="text" id="product0" name="product0" placeholder="מוצר">
+                            </div>
+                            <div class="col-18">
+                                <input type="number" id="count0"  name="count0" placeholder="כמות">
+                            </div>
+                            <div class="col-18">
+                                <input type="number" id="price0" name="price0" placeholder="מחיר">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-30" >
+                       <button type="button" onclick="addLine()"> add</button>
+                    </div>
+                </div>
+                   <div class="row">
+                    <div class="col-100">
+                        <label for="fname">פרטים</label>
+                    </div>
+                    <div class="col-100">
+                        <textarea name="other_details" id="other_details" placeholder="פרטים נספים" wrap="hard"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-100">
+                        <label for="fname">תמונה</label>
+                    </div>
+                    <!--enter here     -->
+                  
+                    <div style="margin:0px auto; direction:unset;">           
+                    <!-- Insert to your webpage where you want to display the carousel -->
+                        <div id="amazingcarousel-container-1">
+                                <div id="amazingcarousel-1" style="display:none;position:relative;width:100%;max-width:720px;margin:0px auto 0px;">
+                                    <div class="amazingcarousel-list-container">
+                                        <ul class="amazingcarousel-list">
+                                            <li class="amazingcarousel-item" >
+                                                <div class="amazingcarousel-item-container a0" onclick="choose(0)">
+                                                    <div class="amazingcarousel-image"><a href="" title="0"  class="html5lightbox " onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/0.jpg"  alt="0" /></a></div>
+                                                    <div class="amazingcarousel-title">0</div>
+                                                    <div class="amazingcarousel-description"></div>                 
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item" >
+                                                    <div class="amazingcarousel-item-container a1" onclick="choose(1)">
+                                                        <div class="amazingcarousel-image"><a href="" title="1"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/1.jpg"  alt="1" /></a></div>
+                                                        <div class="amazingcarousel-title">1</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                                </li>
+                                            <li class="amazingcarousel-item " > 
+                                                <div class="amazingcarousel-item-container a2" onclick="choose(2)">
+                                                    <div class="amazingcarousel-image"><a href="" title="2"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/2.jpg"  alt="2" /></a></div>
+                                                    <div class="amazingcarousel-title">2</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item " >
+                                                <div class="amazingcarousel-item-container a3" onclick="choose(3)">
+                                                    <div class="amazingcarousel-image"><a href="" title="3"  class="html5lightbox" onclick='return false;'  data-group="amazingcarousel-1"><img src="imgs/3.jpg"  alt="3" /></a></div>
+                                                    <div class="amazingcarousel-title">3</div>
+                                                    <div class="amazingcarousel-description"></div>             
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item " >
+                                                <div class="amazingcarousel-item-container a4" onclick="choose(4)">
+                                                    <div class="amazingcarousel-image"><a href="" title="4"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/4.jpg"  alt="4" /></a></div>
+                                                    <div class="amazingcarousel-title">4</div>
+                                                    <div class="amazingcarousel-description"></div>
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item " >
+                                                <div class="amazingcarousel-item-container a5" onclick="choose(5)">
+                                                    <div class="amazingcarousel-image"><a href="" title="5"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/5.jpg"  alt="5" /></a></div>
+                                                    <div class="amazingcarousel-title">5</div>
+                                                    <div class="amazingcarousel-description"></div>
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                <div class="amazingcarousel-item-container a6" onclick="choose(6)">
+                                                    <div class="amazingcarousel-image"><a href="" title="6"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/6.jpg"  alt="6" /></a></div>
+                                                    <div class="amazingcarousel-title">6</div>
+                                                    <div class="amazingcarousel-description"></div>               
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item " >
+                                                <div class="amazingcarousel-item-container a7" onclick="choose(7)">
+                                                    <div class="amazingcarousel-image"><a href="" title="7"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/7.jpg"  alt="7" /></a></div>
+                                                    <div class="amazingcarousel-title">7</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item " >
+                                                <div class="amazingcarousel-item-container a8" onclick="choose(8)">
+                                                    <div class="amazingcarousel-image"><a href="" title="8"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/8.jpg"  alt="8" /></a></div>
+                                                    <div class="amazingcarousel-title">8</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                <div class="amazingcarousel-item-container a9" onclick="choose(9)">
+                                                    <div class="amazingcarousel-image"><a href="" title="9"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/9.jpg"  alt="9" /></a></div>
+                                                    <div class="amazingcarousel-title">9</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a10" onclick="choose(10)">
+                                                        <div class="amazingcarousel-image"><a href="" title="9"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/10.jpg"  alt="10" /></a></div>
+                                                        <div class="amazingcarousel-title">10</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                                </li>
+                                            <li class="amazingcarousel-item ">
+                                                <div class="amazingcarousel-item-container a11" onclick="choose(11)">
+                                                    <div class="amazingcarousel-image"><a href="" title="11"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/11.jpg"  alt="11" /></a></div>
+                                                    <div class="amazingcarousel-title">11</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>  
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a12" onclick="choose(12)">
+                                                        <div class="amazingcarousel-image"><a href="" title="12"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/12.jpg"  alt="12" /></a></div>
+                                                        <div class="amazingcarousel-title">12</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                                </li>
+                                            <li class="amazingcarousel-item ">
+                                                <div class="amazingcarousel-item-container a13" onclick="choose(13)">
+                                                    <div class="amazingcarousel-image"><a href="" title="13"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/13.jpg"  alt="13" /></a></div>
+                                                    <div class="amazingcarousel-title">13</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a14" onclick="choose(14)">
+                                                        <div class="amazingcarousel-image"><a href="" title="14"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/14.jpg"  alt="14" /></a></div>
+                                                        <div class="amazingcarousel-title">14</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a15" onclick="choose(15)">
+                                                        <div class="amazingcarousel-image"><a href="" title="15"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/15.jpg"  alt="15" /></a></div>
+                                                        <div class="amazingcarousel-title">15</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a16" onclick="choose(16)">
+                                                        <div class="amazingcarousel-image"><a href="" title="16"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/16.jpg"  alt="16" /></a></div>
+                                                        <div class="amazingcarousel-title">16</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a17" onclick="choose(17)">
+                                                        <div class="amazingcarousel-image"><a href="" title="17"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/17.jpg"  alt="17" /></a></div>
+                                                        <div class="amazingcarousel-title">17</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                <div class="amazingcarousel-item-container a18" onclick="choose(18)">
+                                                    <div class="amazingcarousel-image"><a href="" title="18"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/18.jpg"  alt="18" /></a></div>
+                                                    <div class="amazingcarousel-title">18</div>
+                                                    <div class="amazingcarousel-description"></div>                    
+                                                </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a19" onclick="choose(19)">
+                                                        <div class="amazingcarousel-image"><a href="" title="19"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/19.jpg"  alt="19" /></a></div>
+                                                        <div class="amazingcarousel-title">19</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                            </li>
+                                            <li class="amazingcarousel-item ">
+                                                    <div class="amazingcarousel-item-container a20" onclick="choose(20)">
+                                                        <div class="amazingcarousel-image"><a href="" title="20"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/20.jpg"  alt="20" /></a></div>
+                                                        <div class="amazingcarousel-title">20</div>
+                                                        <div class="amazingcarousel-description"></div>                    
+                                                    </div>
+                                            </li>
+
+                                        </ul>
+                                        <div class="amazingcarousel-prev"></div>
+                                        <div class="amazingcarousel-next"></div>
+                                    </div>
+                                    <div class="amazingcarousel-nav"></div>
+                                    <div class="amazingcarousel-engine"><a href="http://amazingcarousel.com">jQuery Scroller</a></div>
+                                </div>
+                            </div>
+                        <!-- End of body section HTML codes -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-100">
+                        <label for="fname">גודל תמונה</label>
+                    </div>
+                    <div class="col-100">           
+                        <Select name="imgSize" id="imgSize">
+                            <option value="C" selected>גדול</option>
+                            <option value="B">בינוני</option>
+                            <option value="A">קטן</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-100">
+                        <input type="file" id="file" onchange="onChangeFile()" name="sampleFile">
+                        <input type="text" id ="numImg" name="numImg" value="0" style="display:none"/>
+                        <input type="submit" formaction="/uploadImage" formmethod="post" formtarget="frame" id="uploadImg" style="display:none"/>
+                    </div>
+                </div>
+            </div>
+    
+                <div class="row" style="margin-top:10px ; border-radius: 4px 0 0 4px;">
+                     <input type="submit" name="create" formaction="/create" formmethod="post" onclick="onClickSubmit(event)" onsubmit="submitForm()" formtarget="frame" value="צור קובץ"  style="float: left"/> 
+                     <input type="submit" name="save" formaction="/save" formmethod="post" onclick="onClickSaveSubmit(event)" formtarget="frame" id="saveD" value="שמור נתונים" disabled/>
+                     <input type="text" name="saveName" onchange="onKeyPressSaveName()" onkeydown="onKeyPressSaveName()" id="saveName" placeholder="שם להצעת מחיר שמורה"/>
+                     <div id="saved"><p>נשמר</p></div>     
+                </div>
+            
+            <hr>
+            <div class="row col-100" id="pending" style="display:none">
+                    <img id="pending" src="/imgs/pending.gif" width="80px" height="80px" >
+            </div>
+            <div class="row col-100" id="pdfError" style="display:none">
+                   <p>PDF Error כנראה הגיע למכסה של  25 המרות ביום!</p>
+            </div>
+            <div class="row" id="afterSubmit" style="visibility:hidden">
+
+                    <input type="submit" formaction="/download" name="download" formmethod="post" onclick="onClickSubmit(event)" id="download" value="הורד"/>
+                    <input type="submit" formaction="/preview" name="prevSub" formmethod="post"  onclick="onClickSubmit(event)" formtarget="_blank" value="צפייה" id="prevD"  style="float: right; background-color:thistle;"/> 
+                    <select name="preview" style="float: right" id="prevSelect">
+                        <option value="G" selected>google</option>
+                        <option value="M" >microsoft</option>
+                    </select>
+                
+           
+        
+                    <div class="row" >
+                        <div class="row">
+                            <div class="col-100">
+                                <label for="fname">שלח ל..</label>
+                            </div>
+                            <div class="col-100">
+                                <input type="text" id="email" name="email" onchange="onKeyPressEmail()" onkeydown="onKeyPressEmail()" placeholder="email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-100">
+                                <label for="fname">תוכן המייל</label>
+                            </div>
+                            <div class="col-100">
+                                <textarea name="emailText"  id="emailText" placeholder="טקסט להוסיף למייל"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit" name="email" id="emailSubmit" onclick="onClickEmailSubmit(event)" value="שלח" formaction="/email" disabled>
+                            <div id="sent"><p>נשלח</p></div>     
+                        </div>
+                    </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+          
+    <iframe name="frame" style="display:none;"></iframe>
+    
+        <script src="script/script.js"></script>
+        <script>
+
+                function update(){
+                    let selectedJ=document.getElementById("prepared").value;
+                
+                    var j= parseInt(selectedJ);
+                    let old  = JSON.parse('<%-JSON.stringify(old).replace(/\\'/g, "'")%>');
+                    if(j==0) return;
+                    let selected=old[j-1];
+                    let n=0;
+                
+                    document.getElementById('imgSize').value=selected.imgSize;//new
+                    document.getElementById('numImg').value=selected.numImg;//new
+                    if(parseInt(selected.numImg)!==NaN)
+                        choose2(parseInt(selected.numImg));
+
+                    document.getElementById("other_details").value=selected.other_details;
+                    cleanLines(selected.products.length);
+                    for (j=0; j < selected.products.length ;j++ ) {
+                    let item=selected.products[j];
+            
+                    if(item.product.trim()=="")
+                        continue;
+                    var line= document.getElementById("product"+n);
+                    if (typeof(line) == 'undefined' || line == null){         
+                            addLine();
+                        }
+                    
+                    document.getElementById("price"+n).value = item.price;
+                    document.getElementById("count"+n).value = item.count;
+                    document.getElementById("product"+n).value = item.product;
+                
+                    n++
+                    }
+              }  </script>  
+    </body>
+    
+    
+</html>
