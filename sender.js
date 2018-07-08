@@ -8,11 +8,11 @@ var OAuth2 = google.auth.OAuth2;
 
 var auth2={
     type: 'OAuth2',
-    user: 'amnon2202@gmail.com',
-    clientId: '186164840818-s7k8afi269c1kreed5qhpur1mp5borat.apps.googleusercontent.com',
-    clientSecret: 'SbJF26TJ_OT_GYIt_JGPWw9Q',
-    refreshToken: '1/bkHIV5-7Q1ycH4EajcMjYXlBYY6r2bHR87V4GkvCQpg',
-    accessToken:'ya29.GlxwBSTnB2bpmG6LaEkBScscZfQSK5_sBYMrZbHibZqB8VPbWBdTG1H-YApPlA-IqliLpFO-dH1oJtMyncKJp5jLtQuccjJkd-LkIh29SzJ0AfZjpx6E0zTWj746EA'
+    user: '********',
+    clientId: '*******',
+    clientSecret: '*******',
+    refreshToken: '******',
+    accessToken:'*********'
 };
 
 
@@ -43,7 +43,7 @@ function send(message){
             auth: auth2
           });
        var mailOptions = {
-       from: ' amnon <amnon2202@gmail.com>',
+       from: ' **********',
        to: message.to,
        subject: message.subject,
        text: message.text,
