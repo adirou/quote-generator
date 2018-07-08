@@ -22,7 +22,7 @@ var MongoClient = mongodb.MongoClient;
 // Connection URL. This is where your mongodb server is running.
 
 //(Focus on This Variable)
-var url = 'mongodb://adirou:aDir1701@ds161136.mlab.com:61136/price_quoter';    
+var url = 'mongodb://*********@ds161136.mlab.com:61136/price_quoter';    
 //(Focus on This Variable)
 
 console.log("server started");
