@@ -1,7 +1,6 @@
 Quote Generator (hebrew version)
 
-An App which give the user an easy way to generate quotes.
-
+An App which give the user an easy way to generate quotes.\n
 the app allows the user save templates, and use them later in order to generate other quotes.
 
 the app convert the quote into pdf and docx formats . 
