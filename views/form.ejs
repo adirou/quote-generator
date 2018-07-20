@@ -52,7 +52,7 @@
                     <div class="col-100">
                         <Select name="prepared" id="prepared" onchange="update()">
                              <option value="0" selected>לא נבחר</option>
-                             <% let k=1 ; old.forEach(function(detail) { %>
+                             <% let k=1 ; oldTemplates.forEach(function(detail) { %>
                               <option value="<%=k++%>"><%=detail.saveName%></option>
                               <% }); %>
                         </select>
@@ -225,27 +225,6 @@
                                                         <div class="amazingcarousel-description"></div>                    
                                                     </div>
                                             </li>
-                                            <li class="amazingcarousel-item ">
-                                                <div class="amazingcarousel-item-container a18" onclick="choose(18)">
-                                                    <div class="amazingcarousel-image"><a href="" title="18"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/18.jpg"  alt="18" /></a></div>
-                                                    <div class="amazingcarousel-title">18</div>
-                                                    <div class="amazingcarousel-description"></div>                    
-                                                </div>
-                                            </li>
-                                            <li class="amazingcarousel-item ">
-                                                    <div class="amazingcarousel-item-container a19" onclick="choose(19)">
-                                                        <div class="amazingcarousel-image"><a href="" title="19"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/19.jpg"  alt="19" /></a></div>
-                                                        <div class="amazingcarousel-title">19</div>
-                                                        <div class="amazingcarousel-description"></div>                    
-                                                    </div>
-                                            </li>
-                                            <li class="amazingcarousel-item ">
-                                                    <div class="amazingcarousel-item-container a20" onclick="choose(20)">
-                                                        <div class="amazingcarousel-image"><a href="" title="20"  class="html5lightbox" onclick='return false;' data-group="amazingcarousel-1"><img src="imgs/20.jpg"  alt="20" /></a></div>
-                                                        <div class="amazingcarousel-title">20</div>
-                                                        <div class="amazingcarousel-description"></div>                    
-                                                    </div>
-                                            </li>
 
                                         </ul>
                                         <div class="amazingcarousel-prev"></div>
@@ -289,9 +268,6 @@
             <hr>
             <div class="row col-100" id="pending" style="display:none">
                     <img id="pending" src="/imgs/pending.gif" width="80px" height="80px" >
-            </div>
-            <div class="row col-100" id="pdfError" style="display:none">
-                   <p>PDF Error כנראה הגיע למכסה של  25 המרות ביום!</p>
             </div>
             <div class="row" id="afterSubmit" style="visibility:hidden">
 
@@ -341,9 +317,9 @@
                     let selectedJ=document.getElementById("prepared").value;
                 
                     var j= parseInt(selectedJ);
-                    let old  = JSON.parse('<%-JSON.stringify(old).replace(/\\'/g, "'")%>');
+                    let oldTemplates  = JSON.parse('<%-JSON.stringify(oldTemplates).replace(/\\'/g, "'")%>');
                     if(j==0) return;
-                    let selected=old[j-1];
+                    let selected=oldTemplates[j-1];
                     let n=0;
                 
                     document.getElementById('imgSize').value=selected.imgSize;//new

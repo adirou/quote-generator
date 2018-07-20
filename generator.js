@@ -3,7 +3,7 @@ var Docxtemplater = require('docxtemplater');
 var ImageModule=require('docxtemplater-image-module')
 var fs = require('fs');
 var path = require('path');
-var cloudconvert = new (require('cloudconvert'))('*******');
+var cloudconvert = new (require('cloudconvert'))(process.env.CLOUD_CONVERTER_SECRET);
 
 function generate(details ,res){
     //console.log(JSON.stringify(details));

@@ -2,19 +2,17 @@
 var nodemailer = require('nodemailer');
 var GoogleTokenProvider = require('refresh-token').GoogleTokenProvider;
 var fs = require('fs');
+
 const {google} = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 
-
 var auth2={
     type: 'OAuth2',
-    user: '********',
-    clientId: '*******',
-    clientSecret: '*******',
-    refreshToken: '******',
-    accessToken:'*********'
-};
-
+    user: process.env.SENDER_EMAIL,
+    clientId: process.env.SENDER_CLIENT_ID,
+    clientSecret: process.env.SENDER_CLIENT_SECRET,
+    refreshToken: process.env.SENDER_REFRESH_TOKEN,
+    accessToken: process.env.SENDER_ACCESS_TOKEN};
 
 var oauth2Client = new OAuth2(
   auth2.clientId,
@@ -43,7 +41,7 @@ function send(message){
             auth: auth2
           });
        var mailOptions = {
-       from: ' **********',
+       from: `${process.env.SENDER_NAME} <${process.env.SENDER_EMAIL}>`,
        to: message.to,
        subject: message.subject,
        text: message.text,
@@ -78,7 +76,7 @@ function upload(message,token){
     let drive=google.drive({ version: 'v3', auth: oauth2Client });
     var fileMetadata = {
         name : message.company+'.docx',
-        parents : ['16WHWWiHgHGjq28r63CRh-GVuXhvztEbl']
+        parents : [process.env.DRIVE_PARENT_DIR_CODE]
     };
     var media = {
         mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',

@@ -104,10 +104,6 @@ function submitForm(oFormElement)
                 document.getElementById('pending').style.display="none";
                 document.getElementById('afterSubmit').style ="visibility:visible;";
         }
-        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 424) {
-            document.getElementById('pending').style.display="none";
-            document.getElementById('pdfError').style.display="block";
-            document.getElementById('afterSubmit').style ="visibility:visible;";}
     }
     xhr.onerror = function(){ alert (xhr.responseText); } // failure case
     xhr.open ("POST","/create", true);
