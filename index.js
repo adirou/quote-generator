@@ -193,7 +193,7 @@ function fixDetails(req,lastId){
                 name: req.body.name,
                 company: req.body.company,
                 docNum: lastId,  
-                phone: req.phone,
+                phone: req.body.phone,
                 date: toShortDate(req.body.date),
                 products: sumProducts.products,
                 sum: sumProducts.sum,
