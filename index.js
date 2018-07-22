@@ -1,5 +1,5 @@
 //imports
-//packages
+//--packages
 var express = require('express');
 var session = require('express-session');
 var app = express();
@@ -8,7 +8,7 @@ var fs = require('fs');
 var path = require('path');
 var parse= require('body-parser');
 var hashPass = require('password-hash');
-//modules
+//--modules
 var generate=require('./generator');
 var sender = require('./sender');
 var dbHandler = require("./dbHandler");
@@ -193,6 +193,7 @@ function fixDetails(req,lastId){
                 name: req.body.name,
                 company: req.body.company,
                 docNum: lastId,  
+                phone: req.phone,
                 date: toShortDate(req.body.date),
                 products: sumProducts.products,
                 sum: sumProducts.sum,
